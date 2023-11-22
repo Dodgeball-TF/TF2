@@ -36,10 +36,10 @@ if [ "$SRCDS_SECURED" -eq 0]; then
         SERVER_SECURITY_FLAG="-insecured";
 fi
 
-# Check if STATIC_SERVER_HOSTNAME is set and append it to hostname
+# Check if SRCDS_STATIC_HOSTNAME is set and append it to hostname
 HOSTNAME_PARAM=""
-if [ ! -z "${STATIC_SERVER_HOSTNAME}" ]; then
-        HOSTNAME_PARAM="+hostname ${STATIC_SERVER_HOSTNAME}"
+if [ ! -z "${SRCDS_STATIC_HOSTNAME}" ]; then
+        HOSTNAME_PARAM="+hostname ${SRCDS_STATIC_HOSTNAME}"
 fi
 
 bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console -autoupdate \
