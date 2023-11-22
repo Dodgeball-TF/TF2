@@ -39,7 +39,7 @@ fi
 # Check if SRCDS_STATIC_HOSTNAME is set and append it to hostname
 HOSTNAME_PARAM=""
 if [ ! -z "${SRCDS_STATIC_HOSTNAME}" ]; then
-        HOSTNAME_PARAM="+hostname ${SRCDS_STATIC_HOSTNAME}"
+        HOSTNAME_PARAM="+hostname \"${SRCDS_STATIC_HOSTNAME}\""
 fi
 
 bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console -autoupdate \
