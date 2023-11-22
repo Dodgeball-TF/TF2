@@ -1,0 +1,24 @@
+name: Docker Image
+
+on:
+  push:
+    paths:
+      - '/etc/**'
+      - '/bullseye/**'
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker login
+        env:
+          CR_PAT: ${{ secrets.CR_PAT }}
+        run: echo $CR_PAT | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+      - name: Build the Docker image
+        run: docker build . --file ./bullseye/Dockerfile--tag ghcr.io/dodgeball-tf/tf2:sourcemod
+      - name: Docker push
+        run: docker push ghcr.io/dodgeball-tf/tf2:sourcemod
