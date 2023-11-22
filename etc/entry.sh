@@ -36,6 +36,12 @@ if [ "$SRCDS_SECURED" -eq 0]; then
         SERVER_SECURITY_FLAG="-insecured";
 fi
 
+# Check if STATIC_SERVER_HOSTNAME is set and append it to hostname
+HOSTNAME_PARAM=""
+if [ ! -z "${STATIC_SERVER_HOSTNAME}" ]; then
+        HOSTNAME_PARAM="+hostname ${STATIC_SERVER_HOSTNAME}"
+fi
+
 bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console -autoupdate \
                         -steam_dir "${STEAMCMDDIR}" \
                         -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
@@ -55,4 +61,5 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console -autoupdate \
                         -authkey "${SRCDS_WORKSHOP_AUTHKEY}" \
                         +servercfgfile "${SRCDS_CFG}" \
                         +mapcyclefile "${SRCDS_MAPCYCLE}" \
-                        ${SERVER_SECURITY_FLAG}
+                        ${SERVER_SECURITY_FLAG} \
+			${HOSTNAME_PARAM}
