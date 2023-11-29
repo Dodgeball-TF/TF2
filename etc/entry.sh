@@ -36,6 +36,12 @@ if [ "$SRCDS_SECURED" -eq 0]; then
         SERVER_SECURITY_FLAG="-insecured";
 fi
 
+DEBUG_ENABLED=""
+if [ ! -z "${SRCDS_DEBUG_ENABLED}" ]; then
+        DEBUG_ENABLED="-debug"
+fi
+
+
 # Check if SRCDS_STATIC_HOSTNAME is set and append it to hostname
 HOSTNAME_PARAM=""
 if [ ! -z "${SRCDS_STATIC_HOSTNAME}" ]; then
@@ -63,4 +69,5 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console -autoupdate \
                         +mapcyclefile "${SRCDS_MAPCYCLE}" \
                         ${SERVER_SECURITY_FLAG} \
                         -unrestricted_maxplayers \
-			${HOSTNAME_PARAM}
+			${HOSTNAME_PARAM} \
+   			${DEBUG_ENABLED}
