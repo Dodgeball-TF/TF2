@@ -60,7 +60,8 @@ ENV SRCDS_FPSMAX=300 \
 	SRCDS_WORKSHOP_AUTHKEY="" \
 	SRCDS_CFG="server.cfg" \
 	SRCDS_MAPCYCLE="mapcycle_default.txt" \
-	SRCDS_SECURED=1
+	SRCDS_SECURED=1 \
+ 	AUTO_INSTALL=false
 
 # Switch to user
 USER ${USER}
