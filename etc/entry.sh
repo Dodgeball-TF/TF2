@@ -1,6 +1,15 @@
 #!/bin/bash
 mkdir -p "${STEAMAPPDIR}" || true  
 
+if [ "${AUTO_UPDATE_ONLY}" = true ]; then
+	bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
+					+login anonymous \
+					+app_update "${STEAMAPPID}" \
+					+quit
+
+     exit 1
+fi
+
 if [ "${AUTO_INSTALL}" = true ]; then
 	bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
 					+login anonymous \
