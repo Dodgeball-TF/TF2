@@ -51,6 +51,8 @@ if [ ! -z "${SRCDS_STATIC_HOSTNAME}" ]; then
 fi
 
 bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
+                        -steam_dir "${STEAMCMDDIR}" \
+                        -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
                         -usercon \
                         +fps_max "${SRCDS_FPSMAX}" \
                         -tickrate "${SRCDS_TICKRATE}" \
