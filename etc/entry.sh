@@ -1,10 +1,12 @@
 #!/bin/bash
 mkdir -p "${STEAMAPPDIR}" || true  
 
-bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
-				+login anonymous \
-				+app_update "${STEAMAPPID}" \
-				+quit
+if [ "${AUTO_INSTALL}" = true ]; then
+	bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
+					+login anonymous \
+					+app_update "${STEAMAPPID}" \
+					+quit
+fi
 
 # Are we in a metamod container and is the metamod folder missing?
 if  [ ! -z "$METAMOD_VERSION" ] && [ ! -d "${STEAMAPPDIR}/${STEAMAPP}/addons/metamod" ]; then
@@ -48,9 +50,8 @@ if [ ! -z "${SRCDS_STATIC_HOSTNAME}" ]; then
         HOSTNAME_PARAM="+hostname \"${SRCDS_STATIC_HOSTNAME}\""
 fi
 
-bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console -autoupdate \
+bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -steam_dir "${STEAMCMDDIR}" \
-                        -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
                         -usercon \
                         +fps_max "${SRCDS_FPSMAX}" \
                         -tickrate "${SRCDS_TICKRATE}" \
