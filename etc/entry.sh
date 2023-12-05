@@ -7,7 +7,7 @@ if [ "${AUTO_UPDATE_ONLY}" = true ]; then
 					+app_update "${STEAMAPPID}" \
 					+quit
 
-     exit 1
+     exit 0
 fi
 
 if [ "${AUTO_INSTALL}" = true ]; then
