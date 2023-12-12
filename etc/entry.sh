@@ -59,6 +59,11 @@ if [ ! -z "${SRCDS_STATIC_HOSTNAME}" ]; then
         HOSTNAME_PARAM="+hostname \"${SRCDS_STATIC_HOSTNAME}\""
 fi
 
+START_MAP=""
+if [ ! -z "${SRCDS_STARTMAP}" ]; then
+        START_MAP="+map \"${SRCDS_STARTMAP}\""
+fi
+
 bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -steam_dir "${STEAMCMDDIR}" \
                         -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
@@ -69,7 +74,6 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         +tv_port "${SRCDS_TV_PORT}" \
                         +clientport "${SRCDS_CLIENT_PORT}" \
                         +maxplayers "${SRCDS_MAXPLAYERS}" \
-                        +map "${SRCDS_STARTMAP}" \
                         +sv_setsteamaccount "${SRCDS_TOKEN}" \
                         +rcon_password "${SRCDS_RCONPW}" \
                         +sv_password "${SRCDS_PW}" \
@@ -81,4 +85,5 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         ${SERVER_SECURITY_FLAG} \
                         -unrestricted_maxplayers \
 			${HOSTNAME_PARAM} \
-   			${DEBUG_ENABLED}
+   			${DEBUG_ENABLED} \
+                	${START_MAP}
