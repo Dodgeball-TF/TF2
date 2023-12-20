@@ -68,7 +68,7 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
                         +fps_max "${SRCDS_FPSMAX}" \
                         -tickrate "${SRCDS_TICKRATE}" \
-                        -port "${SRCDS_PORT}" \
+                        +port "${SRCDS_PORT}" \
 			-ip "${SRCDS_IP}" \
                         +tv_port "${SRCDS_TV_PORT}" \
                         +clientport "${SRCDS_CLIENT_PORT}" \
