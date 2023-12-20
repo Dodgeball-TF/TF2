@@ -52,7 +52,6 @@ if [ ! -z "${SRCDS_DEBUG_ENABLED}" ]; then
         DEBUG_ENABLED="-debug"
 fi
 
-
 # Check if SRCDS_STATIC_HOSTNAME is set and append it to hostname
 HOSTNAME_PARAM=""
 if [ ! -z "${SRCDS_STATIC_HOSTNAME}" ]; then
