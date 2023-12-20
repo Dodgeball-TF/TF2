@@ -86,4 +86,4 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
 			${HOSTNAME_PARAM} \
    			${DEBUG_ENABLED} \
                 	${START_MAP} \
-			-ip "${SRCDS_IP}"
+			-ip ${SRCDS_IP}
