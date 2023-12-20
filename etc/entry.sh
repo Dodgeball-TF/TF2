@@ -85,5 +85,5 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -unrestricted_maxplayers \
 			${HOSTNAME_PARAM} \
    			${DEBUG_ENABLED} \
-                	-ip "${SRCDS_IP}" \
-                	${START_MAP}
+                	${START_MAP} \
+			-ip "${SRCDS_IP}"
