@@ -71,6 +71,7 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         +fps_max "${SRCDS_FPSMAX}" \
                         -tickrate "${SRCDS_TICKRATE}" \
                         -port "${SRCDS_PORT}" \
+			-ip "${SRCDS_IP}" \
                         +tv_port "${SRCDS_TV_PORT}" \
                         +clientport "${SRCDS_CLIENT_PORT}" \
                         +maxplayers "${SRCDS_MAXPLAYERS}" \
@@ -85,5 +86,4 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -unrestricted_maxplayers \
 			${HOSTNAME_PARAM} \
    			${DEBUG_ENABLED} \
-                	${START_MAP} \
-			-ip ${SRCDS_IP}
+                	${START_MAP}
