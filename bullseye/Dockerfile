@@ -10,10 +10,7 @@ ENV STEAMAPP tf
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
 ENV DLURL https://raw.githubusercontent.com/Dodgeball-TF/TF2
 
-# Install kubectl
-RUN apk add --no-cache curl && \
-	curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
-	install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl && 
+
 
 RUN set -x \
 	# Add i386 architecture
@@ -21,6 +18,7 @@ RUN set -x \
 	# Install, update & upgrade packages
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
+	curl \
 	wget=1.21-1+deb11u1 \
 	ca-certificates=20210119 \
 	lib32z1=1:1.2.11.dfsg-2+deb11u2 \
@@ -28,6 +26,8 @@ RUN set -x \
 	libbz2-1.0:i386=1.0.8-4 \
 	libtinfo5:i386=6.2+20201114-2+deb11u2 \
 	libcurl3-gnutls:i386=7.74.0-1.3+deb11u9 \
+	&& curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
+	&& apt-get install -y -o root -g root -m 0755 kubectl /usr/local/bin/kubectl \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
 	&& wget "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
@@ -45,6 +45,10 @@ RUN set -x \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" "${HOMEDIR}/${STEAMAPP}_update.txt" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
+
+# Download and install kubectl
+RUN 
+
 
 FROM build_stage AS bullseye-base
 
