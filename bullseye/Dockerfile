@@ -26,7 +26,7 @@ RUN set -x \
 	libbz2-1.0:i386=1.0.8-4 \
 	libtinfo5:i386=6.2+20201114-2+deb11u2 \
 	libcurl3-gnutls:i386=7.74.0-1.3+deb11u9 \
-	&& curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
+	&& curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
 	&& apt-get install -y -o root -g root -m 0755 kubectl /usr/local/bin/kubectl \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
