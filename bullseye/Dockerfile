@@ -10,6 +10,11 @@ ENV STEAMAPP tf
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
 ENV DLURL https://raw.githubusercontent.com/Dodgeball-TF/TF2
 
+# Install kubectl
+RUN apk add --no-cache curl && \
+	curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
+	install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl && 
+
 RUN set -x \
 	# Add i386 architecture
 	&& dpkg --add-architecture i386 \
@@ -26,6 +31,7 @@ RUN set -x \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
 	&& wget "${DLURL}/master/etc/entry.sh" -O "${HOMEDIR}/entry.sh" \
+	&& wget "${DLURL}/master/etc/updater.sh" -O "${HOMEDIR}/updater.sh" \
 	# Create autoupdate config
 	&& { \
 	echo '@ShutdownOnFailedCommand 1'; \
@@ -59,7 +65,7 @@ ENV SRCDS_FPSMAX=300 \
 	SRCDS_CFG="server.cfg" \
 	SRCDS_MAPCYCLE="mapcycle_default.txt" \
 	SRCDS_SECURED=1 \
- 	AUTO_INSTALL=false
+	AUTO_INSTALL=false
 
 # Switch to user
 USER ${USER}
