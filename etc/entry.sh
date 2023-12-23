@@ -71,7 +71,8 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -tickrate "${SRCDS_TICKRATE}" \
                         +port "${SRCDS_PORT}" \
 			-ip "${SRCDS_IP}" \
-                        +tv_port "${SRCDS_TV_PORT}" \
+                        +tv_record \
+			+tv_enable 1 \
                         +clientport "${SRCDS_CLIENT_PORT}" \
                         +maxplayers "${SRCDS_MAXPLAYERS}" \
                         +sv_setsteamaccount "${SRCDS_TOKEN}" \
