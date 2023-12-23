@@ -73,12 +73,9 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
 			-ip "${SRCDS_IP}" \
                         +tv_record \
 			+tv_enable 1 \
-                        +clientport "${SRCDS_CLIENT_PORT}" \
                         +maxplayers "${SRCDS_MAXPLAYERS}" \
                         +sv_setsteamaccount "${SRCDS_TOKEN}" \
                         +rcon_password "${SRCDS_RCONPW}" \
-                        +sv_password "${SRCDS_PW}" \
-                        +sv_region "${SRCDS_REGION}" \
                         -authkey "${SRCDS_WORKSHOP_AUTHKEY}" \
                         +servercfgfile "${SRCDS_CFG}" \
                         +mapcyclefile "${SRCDS_MAPCYCLE}" \
