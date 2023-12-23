@@ -77,8 +77,6 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         +sv_setsteamaccount "${SRCDS_TOKEN}" \
                         +rcon_password "${SRCDS_RCONPW}" \
                         -authkey "${SRCDS_WORKSHOP_AUTHKEY}" \
-                        +servercfgfile "${SRCDS_CFG}" \
-                        +mapcyclefile "${SRCDS_MAPCYCLE}" \
                         ${SERVER_SECURITY_FLAG} \
                         -unrestricted_maxplayers \
 			${HOSTNAME_PARAM} \
