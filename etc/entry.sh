@@ -70,6 +70,7 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         +fps_max "${SRCDS_FPSMAX}" \
                         -tickrate "${SRCDS_TICKRATE}" \
                         +port "${SRCDS_PORT}" \
+			+clientport "28005" \
 			-ip "${SRCDS_IP}" \
                         -nohltv \
 			+tv_enable 1 \
