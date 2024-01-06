@@ -1,15 +1,6 @@
 #!/bin/bash
 mkdir -p "${STEAMAPPDIR}" || true  
 
-if [ "${AUTO_UPDATE_ONLY}" = true ]; then
-	bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
-					+login anonymous \
-					+app_update "${STEAMAPPID}" \
-					+quit
-
-     exit 0
-fi
-
 if [ "${AUTO_INSTALL}" = true ]; then
 	bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
 					+login anonymous \
@@ -82,4 +73,5 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -unrestricted_maxplayers \
 			${HOSTNAME_PARAM} \
    			${DEBUG_ENABLED} \
-                	${START_MAP}
+                	${START_MAP} \
+		 	${SRCDS_START_CUSTOMS}
