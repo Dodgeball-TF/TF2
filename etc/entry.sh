@@ -54,6 +54,13 @@ if [ ! -z "${SRCDS_STARTMAP}" ]; then
         START_MAP="+map \"${SRCDS_STARTMAP}\""
 fi
 
+TICKRATE=""
+if [ ! -z "${SRCDS_TICKRATE}" ]; then
+        TICKRATE="-tickrate ${TICKRATE}"
+fi
+
+START_CUSTOM="${SRCDS_START_CUSTOMS}"
+
 bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -steam_dir "${STEAMCMDDIR}" \
                         -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
@@ -74,4 +81,5 @@ bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
 			${HOSTNAME_PARAM} \
    			${DEBUG_ENABLED} \
                 	${START_MAP} \
-		 	${SRCDS_START_CUSTOMS}
+		 	${TICKRATE} \
+		 	${START_CUSTOM}
