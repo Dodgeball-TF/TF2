@@ -7,7 +7,6 @@ output=$(bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
 
 if echo "${output}" | grep -q "Success! App '${STEAMAPPID}' fully installed."; then
     echo "App fully installed. Restarting server(s)"
-    your_specific_command_after_full_installation
 
     LABEL_SELECTOR="${LABEL_SELECTOR:-app=special-app}"
     NAMESPACE="${NAMESPACE:-default}"
