@@ -22,7 +22,6 @@ RUN set -x \
 	wget=1.21.3-1+b2 \
 	ca-certificates=20230311 \
 	lib32z1=1:1.2.13.dfsg-1 \
-	libz1=1:1.2.13.dfsg-1 \
 	libncurses5:i386=6.4-4 \
 	libncurses6=6.4-4 \
 	libbz2-1.0:i386=1.0.8-5+b1 \
