@@ -61,7 +61,7 @@ fi
 
 START_CUSTOM="${SRCDS_START_CUSTOMS}"
 
-bash "${STEAMAPPDIR}/srcds_run_64" -game "${STEAMAPP}" -console \
+bash "${STEAMAPPDIR}/srcds_run" -game "${STEAMAPP}" -console \
                         -steam_dir "${STEAMCMDDIR}" \
                         -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
 			-usercon \
