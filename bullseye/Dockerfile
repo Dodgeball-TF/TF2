@@ -22,13 +22,13 @@ RUN set -x \
 	wget=1.21.3-1+b2 \
 	ca-certificates=20230311 \
 	lib32z1=1:1.2.13.dfsg-1 \
-	libz1=1:1.2.13.dfsg-1 \   # Added 64-bit zlib
+	libz1=1:1.2.13.dfsg-1 \
 	libncurses5:i386=6.4-4 \
-	libncurses6=6.4-4 \       # Added 64-bit ncurses
+	libncurses6=6.4-4 \
 	libbz2-1.0:i386=1.0.8-5+b1 \
-	libbz2-1.0=1.0.8-5+b1 \   # Added 64-bit bzip2
+	libbz2-1.0=1.0.8-5+b1 \
 	libtinfo5:i386=6.4-4 \
-	libtinfo6=6.4-4 \         # Added 64-bit tinfo
+	libtinfo6=6.4-4 \
 	&& curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" \
 	&& install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl \
 	&& mkdir -p "${STEAMAPPDIR}" \
