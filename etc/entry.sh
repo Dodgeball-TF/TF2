@@ -61,7 +61,12 @@ fi
 
 START_CUSTOM="${SRCDS_START_CUSTOMS}"
 
-bash "${STEAMAPPDIR}/srcds_run_64" -game "${STEAMAPP}" -console \
+USE_64=""
+if [ ! -z "${SRCDS_64}" ]; then
+	USE_64="_64"
+ fi
+
+bash "${STEAMAPPDIR}/srcds_run${USE_64}" -game "${STEAMAPP}" -console \
                         -steam_dir "${STEAMCMDDIR}" \
                         -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
 			-usercon \
