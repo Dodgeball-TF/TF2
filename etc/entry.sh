@@ -76,6 +76,7 @@ bash "${STEAMAPPDIR}/srcds_run${USE_64}" -game "${STEAMAPP}" -console \
 			+clientport "37005" \
 			-ip "${SRCDS_IP}" \
                         -nohltv \
+			+sv_password "${SRCDS_PW}" \
 			+tv_enable 1 \
                         +maxplayers "${SRCDS_MAXPLAYERS}" \
                         +sv_setsteamaccount "${SRCDS_TOKEN}" \
