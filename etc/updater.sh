@@ -25,6 +25,7 @@ elif echo "${output}" | grep -q "Success! App '${STEAMAPPID}' already up to date
     echo "App already up to date. No further action needed."
 else
     echo "Error: Update not successful or status unknown."
+    echo "Output: ${output}"
     exit 1
 fi
 
