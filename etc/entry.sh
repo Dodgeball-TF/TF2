@@ -66,6 +66,11 @@ if [ ! -z "${SRCDS_64}" ]; then
 	USE_64="_64"
  fi
 
+TV_PORT=""
+if [ ! -z "${SRCDS_TV_PORT}" ]; then
+    TV_PORT="+tv_port ${SRCDS_TV_PORT}"
+fi
+
 bash "${STEAMAPPDIR}/srcds_run${USE_64}" -game "${STEAMAPP}" -console \
                         -steam_dir "${STEAMCMDDIR}" \
                         -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
@@ -88,4 +93,5 @@ bash "${STEAMAPPDIR}/srcds_run${USE_64}" -game "${STEAMAPP}" -console \
    			${DEBUG_ENABLED} \
                 	${START_MAP} \
 		 	${TICKRATE} \
+    			${TV_PORT} \
 		 	${START_CUSTOM}
