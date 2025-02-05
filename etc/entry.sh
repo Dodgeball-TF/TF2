@@ -81,6 +81,11 @@ if [ ! -z "${SRCDS_STEAM_PORT}" ]; then
     STEAM_PORT="${SRCDS_STEAM_PORT}"
 fi
 
+TV_PARAMS=""
+if [ ! -z "${TV_PORT}" ]; then
+    TV_PARAMS="-hltv +tv_enable \"1\""
+fi
+
 bash "${STEAMAPPDIR}/srcds_run${USE_64}" -game "${STEAMAPP}" -console \
                         -steam_dir "${STEAMCMDDIR}" \
                         -steamcmd_script "${HOMEDIR}/${STEAMAPP}_update.txt" \
@@ -92,8 +97,6 @@ bash "${STEAMAPPDIR}/srcds_run${USE_64}" -game "${STEAMAPP}" -console \
    			+sport ${STEAM_PORT} \
 			-ip "${SRCDS_IP}" \
 			+sv_password "${SRCDS_PW}" \
-			+tv_enable "1" \
-			-hltv \
                         +maxplayers "${SRCDS_MAXPLAYERS}" \
                         +sv_setsteamaccount "${SRCDS_TOKEN}" \
                         +rcon_password "${SRCDS_RCONPW}" \
@@ -105,4 +108,5 @@ bash "${STEAMAPPDIR}/srcds_run${USE_64}" -game "${STEAMAPP}" -console \
                 	${START_MAP} \
 		 	${TICKRATE} \
     			${TV_PORT} \
+       			${TV_PARAMS} \
 		 	${START_CUSTOM}
