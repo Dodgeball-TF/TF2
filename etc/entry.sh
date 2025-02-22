@@ -64,7 +64,7 @@ START_CUSTOM="${SRCDS_START_CUSTOMS}"
 USE_64=""
 if [ ! -z "${SRCDS_64}" ]; then
 	USE_64="_64"
- fi
+fi
 
 TV_PORT=""
 if [ ! -z "${SRCDS_TV_PORT}" ]; then
